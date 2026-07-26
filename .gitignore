@@ -401,3 +401,4 @@ FodyWeavers.xsd
 out
 cmake-build-debug
 cmake-build-release
+.idea
