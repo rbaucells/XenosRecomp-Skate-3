@@ -477,7 +477,9 @@ void ShaderRecompiler::recompile(const AluInstruction& instr)
                     }
                     else
                     {
-                        assert(!instr.const0Relative && !instr.const1Relative);
+                        if (strcmp(constantName, "i_isLightOn") != 0) {
+                            assert(!instr.const0Relative && !instr.const1Relative);
+                        }
                         regFormatted = constantName;
                     }
                 }
