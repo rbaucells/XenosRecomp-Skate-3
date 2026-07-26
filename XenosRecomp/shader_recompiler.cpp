@@ -120,6 +120,7 @@ static constexpr std::pair<DeclUsage, size_t> INTERPOLATORS[] =
 
 static constexpr std::string_view TEXTURE_DIMENSIONS[] = 
 {
+    "1D",
     "2D",
     "3D", 
     "Cube" 
