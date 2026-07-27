@@ -1,5 +1,3 @@
-#define OUTPUT_INDIVIDUAL
-
 #include "shader.h"
 #include "shader_recompiler.h"
 #include "dxc_compiler.h"
@@ -127,10 +125,6 @@ int main(int argc, char** argv)
 
                 shader.specConstantsMask = recompiler.specConstantsMask;
 
-#ifdef OUTPUT_INDIVIDUAL
-                writeAllBytes(fmt::format("{}/shader{}.hlsl", output, progress.load()).c_str(), recompiler.out.c_str(), recompiler.out.size());
-#endif
-
                 thread_local DxcCompiler dxcCompiler;
 
 #ifdef XENOS_RECOMP_DXIL
@@ -211,7 +205,7 @@ int main(int argc, char** argv)
         f.println("const size_t g_spirvCacheDecompressedSize = {};", spirv.size());
         f.println("const size_t g_shaderCacheEntryCount = {};", shaders.size());
 
-        writeAllBytes(fmt::format("{}/spirv.spv", output).c_str(), f.out.data(), f.out.size());
+        writeAllBytes(output, f.out.data(), f.out.size());
     }
     else
     {
